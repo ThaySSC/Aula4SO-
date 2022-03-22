@@ -1,0 +1,16 @@
+package View;
+
+import java.util.concurrent.Semaphore;
+import Controller.Prc;
+
+public class Principal {
+	public static void main(String[] args) {
+		Semaphore semaforo = new Semaphore(1);
+
+		for (int threadId = 1; threadId < 22; threadId++) {
+			Thread threadP = new Prc(threadId, semaforo);
+			threadP.start();
+		}
+
+	}
+}
